@@ -90,7 +90,7 @@ flutter:
         - asset: assets/fonts/Satoshi-Regular.ttf
           weight: 300
 
-          # style: italic
+           # style: italic
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
