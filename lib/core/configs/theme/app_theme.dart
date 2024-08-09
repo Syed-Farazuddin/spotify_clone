@@ -13,7 +13,6 @@ class AppTheme {
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primary,
         textStyle: const TextStyle(
-          color: Colors.white,
           fontWeight: FontWeight.bold,
         ),
         shape: RoundedRectangleBorder(
@@ -34,7 +33,6 @@ class AppTheme {
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primary,
         textStyle: const TextStyle(
-          color: Colors.white,
           fontWeight: FontWeight.bold,
         ),
         shape: RoundedRectangleBorder(
