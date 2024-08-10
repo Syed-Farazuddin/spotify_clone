@@ -5,11 +5,13 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.title,
+    this.isActive = true,
     this.height,
   });
 
   final void Function() onPressed;
   final String title;
+  final bool isActive;
   final double? height;
   @override
   Widget build(BuildContext context) {
@@ -19,10 +21,14 @@ class CustomButton extends StatelessWidget {
         minimumSize: Size.fromHeight(
           height ?? 80,
         ),
+        elevation: 0,
+        backgroundColor: isActive ? null : Colors.black,
       ),
       child: Text(
         title,
-        style: const TextStyle(color: Colors.white),
+        style: const TextStyle(
+          color: Colors.white,
+        ),
       ),
     );
   }

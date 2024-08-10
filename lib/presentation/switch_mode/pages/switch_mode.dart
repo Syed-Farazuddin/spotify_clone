@@ -1,9 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotify_clone/common/widgets/button/custom_button.dart';
 import 'package:spotify_clone/core/configs/images/app_images.dart';
+import 'package:spotify_clone/presentation/auth/pages/intro.dart';
+import 'package:spotify_clone/presentation/switch_mode/bloc/theme_change.dart';
 // import 'package:spotify_clone/core/configs/theme/app_colors.dart';
 
 class SwitchMode extends StatelessWidget {
@@ -61,19 +63,23 @@ class SwitchMode extends StatelessWidget {
                               sigmaX: 10,
                               sigmaY: 10,
                             ),
-                            child: Container(
-                              height: 80,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                color: const Color(0XFF30393C).withOpacity(
-                                  0.5,
+                            child: GestureDetector(
+                              onTap: () {
+                                context.read<ThemeChange>().UpdateTheme(
+                                      ThemeMode.dark,
+                                    );
+                              },
+                              child: Container(
+                                height: 80,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  color: const Color(0XFF30393C).withOpacity(
+                                    0.5,
+                                  ),
+                                  shape: BoxShape.circle,
                                 ),
-                                shape: BoxShape.circle,
-                              ),
-                              child: Center(
-                                child: IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
+                                child: const Center(
+                                  child: Icon(
                                     Icons.dark_mode,
                                     color: Colors.white,
                                     size: 40,
@@ -103,19 +109,23 @@ class SwitchMode extends StatelessWidget {
                               sigmaX: 10,
                               sigmaY: 10,
                             ),
-                            child: Container(
-                              height: 80,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                color: const Color(0XFF30393C).withOpacity(
-                                  0.5,
+                            child: GestureDetector(
+                              onTap: () {
+                                context.read<ThemeChange>().UpdateTheme(
+                                      ThemeMode.light,
+                                    );
+                              },
+                              child: Container(
+                                height: 80,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  color: const Color(0XFF30393C).withOpacity(
+                                    0.5,
+                                  ),
+                                  shape: BoxShape.circle,
                                 ),
-                                shape: BoxShape.circle,
-                              ),
-                              child: Center(
-                                child: IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
+                                child: const Center(
+                                  child: Icon(
                                     Icons.light_mode,
                                     color: Colors.white,
                                     size: 40,
@@ -129,7 +139,7 @@ class SwitchMode extends StatelessWidget {
                           height: 20,
                         ),
                         const Text(
-                          "Dark Mode",
+                          "Light Mode",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
@@ -147,7 +157,7 @@ class SwitchMode extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (BuildContext context) => const SwitchMode(),
+                        builder: (BuildContext context) => const AuthIntro(),
                       ),
                     );
                   },
