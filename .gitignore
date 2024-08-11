@@ -17,7 +17,7 @@ migrate_working_dir/
 .idea/
 
 # Configuration Files
-firebase_options
+lib/firebase_options.dart
 
 
 # The .vscode folder contains launch configuration and tasks you configure in
