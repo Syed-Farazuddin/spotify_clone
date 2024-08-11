@@ -6,7 +6,6 @@ import 'package:spotify_clone/common/widgets/button/custom_button.dart';
 import 'package:spotify_clone/core/configs/images/app_images.dart';
 import 'package:spotify_clone/presentation/auth/pages/intro.dart';
 import 'package:spotify_clone/presentation/switch_mode/bloc/theme_change.dart';
-// import 'package:spotify_clone/core/configs/theme/app_colors.dart';
 
 class SwitchMode extends StatelessWidget {
   const SwitchMode({super.key});
@@ -157,7 +156,8 @@ class SwitchMode extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (BuildContext context) => const AuthIntro(),
+                        builder: (BuildContext context) =>
+                            const SignupOrSigninPage(),
                       ),
                     );
                   },
