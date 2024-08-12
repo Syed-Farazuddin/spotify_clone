@@ -4,7 +4,10 @@ import 'package:spotify_clone/common/widgets/button/custom_button.dart';
 import 'package:spotify_clone/common/widgets/input_field.dart/custom_input.dart';
 import 'package:spotify_clone/core/configs/images/app_images.dart';
 import 'package:spotify_clone/core/configs/theme/app_colors.dart';
+import 'package:spotify_clone/data/models/auth/user_model.dart';
+import 'package:spotify_clone/domain/usecases/sign_up.dart';
 import 'package:spotify_clone/presentation/auth/pages/sign_in/sign_in.dart';
+import 'package:spotify_clone/service_locator.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -85,7 +88,15 @@ class SignUp extends StatelessWidget {
               height: 20,
             ),
             CustomButton(
-              onPressed: () {},
+              onPressed: () async {
+                await sl<SignUpUseCase>().call(
+                  params: UserModel(
+                    email: email,
+                    fullName: name,
+                    password: password,
+                  ),
+                );
+              },
               title: "Create Account",
             ),
             const SizedBox(

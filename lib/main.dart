@@ -8,6 +8,7 @@ import 'package:spotify_clone/core/configs/theme/app_theme.dart';
 import 'package:spotify_clone/firebase_options.dart';
 import 'package:spotify_clone/presentation/splash/pages/splash.dart';
 import 'package:spotify_clone/presentation/switch_mode/bloc/theme_change.dart';
+import 'package:spotify_clone/service_locator.dart';
 
 Future<void> main() async {
   await Firebase.initializeApp(
@@ -20,6 +21,9 @@ Future<void> main() async {
         ? HydratedStorage.webStorageDirectory
         : await getApplicationDocumentsDirectory(),
   );
+
+  await initializeDependencies();
+
   runApp(const MyApp());
 }
 
