@@ -89,12 +89,19 @@ class SignUp extends StatelessWidget {
             ),
             CustomButton(
               onPressed: () async {
-                await sl<SignUpUseCase>().call(
+                var result = await sl<SignUpUseCase>().call(
                   params: UserModel(
                     email: email,
                     fullName: name,
                     password: password,
                   ),
+                );
+                result.fold(
+                  (l) {
+                    var snackbar = SnackBar(content: Text(l));
+                    ScaffoldMessenger.of(context).showSnackBar(snackbar);
+                  },
+                  (r) {},
                 );
               },
               title: "Create Account",
